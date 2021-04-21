@@ -1,6 +1,19 @@
 package oop.inheritance.verifone.vx520;
 
 public class VerifoneVx520GPS {
+
+    private static VerifoneVx520GPS instance;
+
+    // Constructor privado
+    private VerifoneVx520GPS(){}
+
+    public static VerifoneVx520GPS getInstance(){
+        if(instance == null){
+            instance = new VerifoneVx520GPS();
+        }
+        return instance;
+    }
+
     /**
      * Opens a connection using the GPS device
      *
