@@ -1,8 +1,19 @@
 package oop.inheritance.verifone.v240m;
+import oop.inheritance.data.InterfaceDisplay;
 
-import oop.inheritance.core2.TPVDisplay2;
+public class VerifoneV240mDisplay implements InterfaceDisplay{
 
-public class VerifoneV240mDisplay implements TPVDisplay2 {
+    private static VerifoneV240mDisplay instance;
+
+    // Constructor privado
+    private VerifoneV240mDisplay(){}
+
+    public static VerifoneV240mDisplay getInstance(){
+        if(instance == null){
+            instance = new VerifoneV240mDisplay();
+        }
+        return instance;
+    }
 
     /**
      * Prints a message to specied position
