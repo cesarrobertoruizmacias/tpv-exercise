@@ -1,6 +1,5 @@
 package oop.inheritance.data;
 
-
 public final class Card {
     private final String account;
     private final ExpirationDate expirationDate;

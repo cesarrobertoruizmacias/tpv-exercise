@@ -1,6 +1,7 @@
 package oop.inheritance.data;
 
 import java.time.LocalDateTime;
+
 public class Transaction {
     private int amountInCents;
     private Card card;

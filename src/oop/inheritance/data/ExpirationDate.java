@@ -1,4 +1,5 @@
 package oop.inheritance.data;
+
 public final class ExpirationDate {
     private final int year;
     private final int month;
