@@ -1,21 +1,12 @@
 package oop.inheritance;
 
-import java.time.LocalDateTime;
-
-import oop.inheritance.data.Card;
-import oop.inheritance.data.CommunicationType;
-import oop.inheritance.data.SupportedTerminal;
-import oop.inheritance.data.Transaction;
-import oop.inheritance.data.TransactionResponse;
-import oop.inheritance.ingenico.IngenicoCardSwipper;
-import oop.inheritance.ingenico.IngenicoChipReader;
-import oop.inheritance.ingenico.IngenicoDisplay;
-import oop.inheritance.ingenico.IngenicoEthernet;
-import oop.inheritance.ingenico.IngenicoGPS;
-import oop.inheritance.ingenico.IngenicoKeyboard;
-import oop.inheritance.ingenico.IngenicoModem;
-import oop.inheritance.ingenico.IngenicoPrinter;
+import oop.inheritance.core.TPVDisplay;
+import oop.inheritance.core2.TPVDisplay2;
+import oop.inheritance.data.*;
+import oop.inheritance.ingenico.*;
 import oop.inheritance.verifone.v240m.VerifoneV240mDisplay;
+
+import java.time.LocalDateTime;
 
 public class Application {
 
@@ -89,18 +80,16 @@ public class Application {
     }
 
     private void printReceipt(Transaction transaction, String hostReference) {
-        IngenicoPrinter ingenicoPrinter = new IngenicoPrinter();
+        TPVDisplay tpvDisplay = null;
         Card card = transaction.getCard();
-
-        ingenicoPrinter.print(5, "APROBADA");
-        ingenicoPrinter.lineFeed();
-        ingenicoPrinter.print(5, card.getAccount());
-        ingenicoPrinter.lineFeed();
-        ingenicoPrinter.print(5, "" + transaction.getAmountInCents());
-        ingenicoPrinter.lineFeed();
-        ingenicoPrinter.print(5, "________________");
-
+        tpvDisplay.print(5, "APROBADA");
+        tpvDisplay.lineFeed();
+        tpvDisplay.print(5, card.getAccount());
+        tpvDisplay.lineFeed();
+        tpvDisplay.print(5, "" + transaction.getAmountInCents());
+        tpvDisplay.print(5, "________________");
     }
+
 
     private TransactionResponse sendSale(Transaction transaction) {
         IngenicoEthernet ethernet = new IngenicoEthernet();
@@ -142,14 +131,11 @@ public class Application {
     }
 
     public void clearScreen() {
-        if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = new IngenicoDisplay();
+        showcleanScreen();
+    }
 
-            ingenicoDisplay.clear();
-        } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay();
-
-            verifoneV240mDisplay.clear();
-        }
+    private void showcleanScreen() {
+        TPVDisplay2 tpvDisplay2 = null;
+        tpvDisplay2.clear();
     }
 }

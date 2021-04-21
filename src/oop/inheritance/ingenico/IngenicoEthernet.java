@@ -1,7 +1,6 @@
 package oop.inheritance.ingenico;
 
-import oop.inheritance.data.Transaction;
-import oop.inheritance.data.TransactionResponse;
+import oop.inheritance.data.*;
 
 public class IngenicoEthernet {
 

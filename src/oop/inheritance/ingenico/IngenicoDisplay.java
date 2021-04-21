@@ -1,6 +1,8 @@
 package oop.inheritance.ingenico;
 
-public class IngenicoDisplay {
+import oop.inheritance.core2.TPVDisplay2;
+
+public class IngenicoDisplay implements TPVDisplay2 {
 
     /**
      * Prints a message to specied position

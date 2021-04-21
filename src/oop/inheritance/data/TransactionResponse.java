@@ -1,5 +1,4 @@
 package oop.inheritance.data;
-
 public class TransactionResponse {
     private boolean approved;
     private String hostReference;
