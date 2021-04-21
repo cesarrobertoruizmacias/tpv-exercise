@@ -1,5 +1,6 @@
 package oop.inheritance;
-import oop.inheritance.data.*;
+
+import oop.inheritance.data.SupportedTerminal;
 
 public class Main {
 
