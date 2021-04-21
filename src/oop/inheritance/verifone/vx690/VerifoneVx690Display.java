@@ -1,6 +1,19 @@
 package oop.inheritance.verifone.vx690;
+import oop.inheritance.data.InterfaceDisplay;
 
-public class VerifoneVx690Display {
+public class VerifoneVx690Display implements InterfaceDisplay{
+
+    private static VerifoneVx690Display instance;
+
+    // Constructor privado
+    private VerifoneVx690Display(){}
+
+    public static VerifoneVx690Display getInstance(){
+        if(instance == null){
+            instance = new VerifoneVx690Display();
+        }
+        return instance;
+    }
 
     /**
      * Prints a message to specied position
